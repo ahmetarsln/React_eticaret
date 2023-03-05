@@ -1,12 +1,10 @@
-import {store} from './store'
-import {existItem} from
 
 
 export const cardReducer = (state = {cardItems: []}, action) => {
     switch (action.type) {
         case "ADD_CARD":
             const item= action.payload;
-            const existitem = store.cardItems.find(x =>x.id === item.payload);
+            const existItem = state.cardItems.find(x =>x.id === item.payload);
             if(existItem) {
               return {
                 ...state,
